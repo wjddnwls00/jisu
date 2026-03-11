@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>너를 위해 준비했어 ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Gamja Flower', cursive;
+            overflow: hidden;
+        }
+
+        #scene1 {
+            width: 100%;
+            height: 100%;
+            background-color: #ffb6c1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: opacity 0.5s;
+        }
+
+        #scene2 {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: #fff0f3;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .box { font-size: 100px; animation: bounce 1s infinite; }
+        .instruction { font-size: 24px; color: white; margin-top: 20px; }
+
+        .message { font-size: 40px; color: #ff4d6d; line-height: 1.6; }
+        .photo { 
+            width: 280px; 
+            border: 10px solid white; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            margin: 20px 0;
+            transform: rotate(-3deg);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scene1" onclick="showSurprise()">
+        <div class="box">🎁</div>
+        <div class="instruction">이 선물을 클릭해봐!</div>
+    </div>
+
+    <div id="scene2">
+        <div class="message">
+            지수야 1학기 힘내쟈앗!!,<br>
+            함께해줘서 고마워 ❤️
+        </div>
+        
+        <img src="us.jpg" alt="우리 사진" class="photo" onerror="this.src='https://api.iconify.design/noto:smiling-face-with-hearts.svg'">
+        
+        <div class="message" style="font-size: 24px;">
+            앞으로 더 재미있는 거 많이 만들어줄게!
+        </div>
+        <button onclick="location.reload()" style="margin-top:20px; padding:10px 20px; border-radius:20px; border:none; background:#ffb6c1; color:white; cursor:pointer;">다시 보기</button>
+    </div>
+
+    <script>
+        function showSurprise() {
+            const s1 = document.getElementById('scene1');
+            const s2 = document.getElementById('scene2');
+
+            s1.style.opacity = '0';
+            
+            setTimeout(() => {
+                s1.style.display = 'none';
+                
+                s2.style.display = 'flex';
+                setTimeout(() => {
+                    s2.style.opacity = '1';
+                }, 50);
+            }, 500);
+        }
+    </script>
+</body>
+</html>
